@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Event</h1>
+        <form id="eventForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" required>
+
+            <label for="eventDate">Date:</label>
+            <input type="date" id="eventDate" required>
+
+            <label for="eventTime">Time:</label>
+            <input type="time" id="eventTime" required>
+
+            <label for="eventLocation">Location:</label>
+            <input type="text" id="eventLocation" required>
+
+            <label for="eventDescription">Description:</label>
+            <textarea id="eventDescription" rows="4" required></textarea>
+
+            <button type="submit">Create Event</button>
+        </form>
+
+        <div id="eventOutput" class="event-output"></div>
+    </div>
+
+    <h2>Manage Events</h2>
+    <div id="eventManagementSection">
+        <div id="eventList"></div>
+        
+        <!-- Event Editing Modal -->
+        <div id="editEventModal" style="display:none;">
+            <form id="editEventForm" onsubmit="updateEvent(event)">
+                <input type="hidden" id="editEventId" />
+                <input type="text" id="editEventName" required placeholder="Event Name" />
+                <input type="date" id="editEventDate" required />
+                <input type="time" id="editEventTime" required />
+                <input type="text" id="editEventLocation" required placeholder="Location" />
+                <textarea id="editEventDescription" required placeholder="Description"></textarea>
+                <button type="submit">Update Event</button>
+            </form>
+            <button onclick="closeEditModal()">Cancel</button>
+        </div>
+    </div>
+    
+    
+
+    <script src="create.js"></script>
+</body>
+</html>
